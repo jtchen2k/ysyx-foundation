@@ -1,4 +1,4 @@
-CFLAGS=-g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG $(OPTFLAGS)
+CFLAGS=-g -O2 -Wall -Isrc -rdynamic $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
 PREFIX?=/usr/local
 
@@ -14,7 +14,7 @@ SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
 
-dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
+dev: CFLAGS=-g -Wall -Wextra -Isrc - $(OPTFLAGS)
 dev: all
 
 $(TARGET): CFLAGS += -fPIC
@@ -35,8 +35,8 @@ build:
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
-# $(TESTS): $(TARGET)
-# 	$(CC) $(CFLAGS) $@.c $(TARGET) -o $@
+$(TESTS): $(TARGET)
+	$(CC) $(CFLAGS) $@.c $(TARGET) -o $@
 
 valgrind:
 	VALGRIND="valgrind --log-file=/tmp/valgrind-%p.log" $(MAKE)
