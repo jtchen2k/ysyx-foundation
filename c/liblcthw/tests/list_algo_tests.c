@@ -1,20 +1,31 @@
 /*
  * list_algo_tests.c
- * Project: tests
- * Created: 2024-11-14 20:18:49
- * Author: Juntong Chen (dev@jtchen.io)
- * -----
- * Last Modified: 2024-11-14 22:27:24
- * Modified By: Juntong Chen (dev@jtchen.io)
+ *
+ * @project: ysyx
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2024-11-14 20:18:49
+ * @modified: 2024-11-25 23:05:24
+ *
+ * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
+
 #include "minunit.h"
 #include <lcthw/list_algos.h>
 #include <assert.h>
 #include <string.h>
 #include <time.h>
 
-char *values[] = {"XXXX", "1234", "abcd", "xjvef", "NDSS"};
-#define NUM_VALUES 5
+#define NUM_VALUES 1000
+char *values[NUM_VALUES];
+
+static void load_values() {
+    for (int i = 0; i < NUM_VALUES; i++) {
+        values[i] = malloc(5);
+        for (int j = 0; j < 4; j++) {
+            values[i][j] = 'a' + rand() % 26;
+        }
+    }
+}
 
 List *create_words() {
     int i = 0;
@@ -78,7 +89,7 @@ char *test_merge_sort() {
 }
 
 char *test_perf() {
-    const int num_runs = 1e6;
+    const int num_runs = 1e6 / NUM_VALUES;
     clock_t start, end;
     start = clock();
     for (int i = 0; i < num_runs; i++) {
@@ -87,7 +98,7 @@ char *test_perf() {
         List_destroy(words);
     }
     end = clock();
-    debug("Time elapsed for bubble sort: %ld", end - start);
+    debug("Time elapsed for bubble sort: %ld ms", (end - start) / (CLOCKS_PER_SEC / 1000));
     start = clock();
     for (int i = 0; i < num_runs; i++) {
         List *words = create_words();
@@ -96,11 +107,12 @@ char *test_perf() {
         List_destroy(words);
     }
     end = clock();
-    debug("Time elapsed for merge sort: %ld", end - start);
+    debug("Time elapsed for merge sort: %ld ms", (end - start) / (CLOCKS_PER_SEC / 1000));
     return NULL;
 }
 
 char *all_tests() {
+    load_values();
     mu_suite_start();
 
     mu_run_test(test_bubble_sort);

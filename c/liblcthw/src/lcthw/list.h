@@ -1,5 +1,16 @@
-#ifndef YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST
-#define YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST
+/*
+ * list.h
+ *
+ * @project: ysyx
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2024-11-11 18:57:36
+ * @modified: 2024-11-25 22:54:22
+ *
+ * Copyright (c) 2024 Juntong Chen. All rights reserved.
+ */
+
+#ifndef __LCTHW_LIST__
+#define __LCTHW_LIST__
 
 #include <stdlib.h>
 
@@ -34,8 +45,16 @@ void *List_shift(List* list);
 
 void *List_remove(List *list, ListNode *node);
 
+/**
+ * A macro for iterating over a list.
+ * L: list element
+ * S: start element
+ * M: next element
+ * V: current element
+ */
 #define LIST_FOREACH(L, S, M, V) ListNode *_node = NULL;\
     ListNode *V = NULL;\
     for (V = _node = L->S; _node != NULL; V = _node = _node->M)
 
-#endif /* YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST */
+
+#endif /* __LCTHW_LIST__ */

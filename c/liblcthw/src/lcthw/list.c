@@ -1,12 +1,14 @@
 /*
  * list.c
- * Project: lcthw
- * Created: 2024-11-11 18:57:26
- * Author: Juntong Chen (dev@jtchen.io)
- * -----
- * Last Modified: 2024-11-11 21:21:09
- * Modified By: Juntong Chen (dev@jtchen.io)
+ *
+ * @project: ysyx
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2024-11-11 18:57:26
+ * @modified: 2024-11-25 22:54:22
+ *
+ * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
+
 #include <lcthw/list.h>
 #include <lcthw/dbg.h>
 

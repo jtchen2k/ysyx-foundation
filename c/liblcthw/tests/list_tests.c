@@ -1,11 +1,12 @@
 /*
  * list_tests.c
- * Project: tests
- * Created: 2024-11-11 19:52:07
- * Author: Juntong Chen (dev@jtchen.io)
- * -----
- * Last Modified: 2024-11-11 21:15:30
- * Modified By: Juntong Chen (dev@jtchen.io)
+ *
+ * @project: ysyx
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2024-11-14 20:18:49
+ * @modified: 2024-11-25 22:54:22
+ *
+ * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
 #include "minunit.h"
 #include <lcthw/list.h>

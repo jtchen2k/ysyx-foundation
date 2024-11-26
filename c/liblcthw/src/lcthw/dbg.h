@@ -1,5 +1,5 @@
-#ifndef YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_DBG
-#define YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_DBG
+#ifndef __LCTHW_DBG__
+#define __LCTHW_DBG__
 
 #include <stdio.h>
 #include <errno.h>
@@ -28,4 +28,4 @@
 
 #define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
 
-#endif /* YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_DBG */
+#endif /* __LCTHW_DBG__ */

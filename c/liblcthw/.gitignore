@@ -1,3 +1,14 @@
+*
 build
 **/*.o
 **/*.a
+
+!Makefile
+!LICENSE
+!README.md
+!tests
+!src
+!src/*
+!**/*.c
+!**/*.h
+!**/*.sh

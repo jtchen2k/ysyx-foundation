@@ -1,15 +1,16 @@
 /*
  * list_algos.h
- * Project: lcthw
- * Created: 2024-11-14 20:06:46
- * Author: Juntong Chen (dev@jtchen.io)
- * -----
- * Last Modified: 2024-11-14 22:01:22
- * Modified By: Juntong Chen (dev@jtchen.io)
+ *
+ * @project: ysyx
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2024-11-14 20:06:46
+ * @modified: 2024-11-25 22:54:22
+ *
+ * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
 
-#ifndef YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST_ALGOS
-#define YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST_ALGOS
+#ifndef __LCTHW_LIST_ALGOS__
+#define __LCTHW_LIST_ALGOS__
 
 #include <lcthw/list.h>
 
@@ -19,4 +20,4 @@ int List_bubble_sort(List *list, List_compare cmp);
 
 List *List_merge_sort(List *list, List_compare cmp);
 
-#endif /* YSYX_FOUNDATION_C_LIBLCTHW_SRC_LCTHW_LIST_ALGOS */
+#endif /* __LCTHW_LIST_ALGOS__ */

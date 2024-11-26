@@ -1,7 +1,8 @@
 
+#ifndef __TESTS_MINUNIT__
+#define __TESTS_MINUNIT__
+
 #undef NDEBUG
-#ifndef _minunit_h
-#define _minunit_h
 
 #include <stdio.h>
 #include <lcthw/dbg.h>
@@ -31,4 +32,5 @@
 
 int tests_run;
 
-#endif
+
+#endif /* __TESTS_MINUNIT__ */
