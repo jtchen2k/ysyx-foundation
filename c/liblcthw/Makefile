@@ -38,7 +38,7 @@ tests: $(TESTS)
 $(TESTS): $(TARGET) $(TEST_SRC)
 	$(CC) $(CFLAGS) $@.c $(TARGET) -o $@
 
-valgrind:
+valgrind: $(TARGET)
 	VALGRIND="valgrind --log-file=/tmp/valgrind-%p.log" $(MAKE)
 
 # The Cleaner
