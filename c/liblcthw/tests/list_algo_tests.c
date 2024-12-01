@@ -4,7 +4,7 @@
  * @project: ysyx
  * @author: Juntong Chen (dev@jtchen.io)
  * @created: 2024-11-14 20:18:49
- * @modified: 2024-11-30 00:13:53
+ * @modified: 2024-11-30 21:02:40
  *
  * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
@@ -88,7 +88,7 @@ char *test_merge_sort() {
     return NULL;
 }
 
-char *test_perf() {
+char *test_perf_mmap() {
     const int num_runs = 1e5 / NUM_VALUES;
     clock_t start, end;
     start = clock();
@@ -117,7 +117,7 @@ char *all_tests() {
 
     mu_run_test(test_bubble_sort);
     mu_run_test(test_merge_sort);
-    mu_run_test(test_perf);
+    mu_run_test(test_perf_mmap);
 
     return NULL;
 }
