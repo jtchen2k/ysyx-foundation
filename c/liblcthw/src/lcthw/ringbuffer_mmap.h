@@ -6,7 +6,7 @@
  * @project: ysyx
  * @author: Juntong Chen (dev@jtchen.io)
  * @created: 2024-11-30 14:47:31
- * @modified: 2024-11-30 16:34:49
+ * @modified: 2024-12-01 15:52:45
  *
  * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
@@ -36,6 +36,8 @@ int RingBufferM_write(RingBufferM *buffer, char *data, int length);
 int RingBufferM_empty(RingBufferM *buffer);
 
 int RingBufferM_full(RingBufferM *buffer);
+
+int RingBufferM_size(RingBufferM *buffer);
 
 int RingBufferM_available_data(RingBufferM *buffer);
 
