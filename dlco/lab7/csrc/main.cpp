@@ -4,13 +4,12 @@
  * @project: ysyx
  * @author: Juntong Chen (dev@jtchen.io)
  * @created: 2024-12-05 00:11:47
- * @modified: 2024-12-08 23:37:12
+ * @modified: 2024-12-21 16:48:57
  *
  * Copyright (c) 2024 Juntong Chen. All rights reserved.
  */
 
-
-#include "Vrand8.h"
+#include "Vlab7.h"
 #include <cassert>
 #include <cstdio>
 #include <nvboard.h>
@@ -18,7 +17,7 @@
 #include <verilated_vcd_c.h>
 
 #ifndef TOP_NAME
-#define TOP_NAME Vrand8
+#define TOP_NAME lab7
 #endif
 
 static VerilatedVcdC    *g_trace;
@@ -42,9 +41,12 @@ static void single_cycle_trace() {
 
 static void single_cycle() {
     g_context->timeInc(1);
-    dut->eval();
-    if (TRACE_ON)
-        single_cycle_trace();
+    for (int i = 0; i < 2; i++) {
+        dut->clk = i;
+        dut->eval();
+        if (TRACE_ON)
+            single_cycle_trace();
+    }
 }
 
 static void setup_trace() {
@@ -59,7 +61,13 @@ static void setup_dut() {
     g_context = new VerilatedContext();
     g_trace = new VerilatedVcdC();
     dut = new TOP_NAME(g_context);
+}
 
+static void reset(int n) {
+    dut->clrn = 1;
+    while (n--)
+        single_cycle();
+    dut->clrn = 0;
 }
 
 int main() {
@@ -68,6 +76,9 @@ int main() {
 
     nvboard_bind_all_pins(dut);
     nvboard_init();
+
+    reset(1e4);
+
     while (1) {
         nvboard_update();
         single_cycle();

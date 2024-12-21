@@ -1,4 +1,4 @@
-top=alu4
+top=rand8
 
 a (SW3, SW2, SW1, SW0)
 b (SW7, SW6, SW5, SW4)
